@@ -58,9 +58,6 @@
     <Compile Include="Instructor.cs">
       <DependentUpon>SchoolEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="OfficeAssignment.cs">
-      <DependentUpon>SchoolEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="OnlineCourse.cs">
       <DependentUpon>SchoolEntities.tt</DependentUpon>
     </Compile>

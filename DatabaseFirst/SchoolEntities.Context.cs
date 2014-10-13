@@ -27,7 +27,6 @@ namespace DatabaseFirst
     
         public virtual DbSet<Course> Courses { get; set; }
         public virtual DbSet<Department> Departments { get; set; }
-        public virtual DbSet<OfficeAssignment> OfficeAssignments { get; set; }
         public virtual DbSet<Person> People { get; set; }
         public virtual DbSet<StudentGrade> StudentGrades { get; set; }
     }

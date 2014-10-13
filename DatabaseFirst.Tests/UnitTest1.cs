@@ -86,5 +86,17 @@ namespace DatabaseFirst.Tests
                 }
             }
         }
+
+        [TestMethod]
+        public void OfficeAssignmentBijInstructor()
+        {
+            using (var context = new SchoolEntities())
+            {
+                foreach (var instructor in context.People.OfType<Instructor>())
+                {
+                    Console.WriteLine("{0} {1}: {2}", instructor.FirstName, instructor.LastName, instructor.Location);
+                }
+            }
+        }
     }
 }

@@ -17,7 +17,7 @@ namespace DatabaseFirst
         public Course()
         {
             this.StudentGrades = new HashSet<StudentGrade>();
-            this.Instructor = new HashSet<Instructor>();
+            this.Instructors = new HashSet<Instructor>();
         }
     
         public int CourseID { get; set; }
@@ -27,6 +27,6 @@ namespace DatabaseFirst
     
         public virtual Department Department { get; set; }
         public virtual ICollection<StudentGrade> StudentGrades { get; set; }
-        public virtual ICollection<Instructor> Instructor { get; set; }
+        public virtual ICollection<Instructor> Instructors { get; set; }
     }
 }

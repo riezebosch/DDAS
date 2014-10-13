@@ -20,6 +20,7 @@ namespace DatabaseFirst
         }
     
         public System.DateTime HireDate { get; set; }
+        public string Location { get; set; }
     
         public virtual ICollection<Course> Courses { get; set; }
     }
