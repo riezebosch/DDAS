@@ -1,5 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Linq;
+using System.Linq.Expressions;
 
 namespace DatabaseFirst.Tests
 {
@@ -11,7 +13,11 @@ namespace DatabaseFirst.Tests
         {
             using (var context = new SchoolEntities())
             {
-                foreach (var person in context.People)
+                // Overload wordt blijkbaar genegeerd door EF
+                Expression<Func<Person, bool>> filter = 
+                    p => p.FirstName.Equals("kim", StringComparison.Ordinal);
+
+                foreach (var person in context.People.Where(filter))
                 {
                     Console.WriteLine("{0} {1}", person.FirstName, person.LastName);
                 }

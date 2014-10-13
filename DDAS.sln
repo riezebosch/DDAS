@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseFirst", "DatabaseFi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseFirst.Tests", "DatabaseFirst.Tests\DatabaseFirst.Tests.csproj", "{A48A55E3-7D75-4074-A8B3-B9A49B1009F6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqDemo", "LinqDemo\LinqDemo.csproj", "{877D1865-8612-4315-A32A-913E4409355E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{A48A55E3-7D75-4074-A8B3-B9A49B1009F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A48A55E3-7D75-4074-A8B3-B9A49B1009F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A48A55E3-7D75-4074-A8B3-B9A49B1009F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{877D1865-8612-4315-A32A-913E4409355E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{877D1865-8612-4315-A32A-913E4409355E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{877D1865-8612-4315-A32A-913E4409355E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{877D1865-8612-4315-A32A-913E4409355E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
