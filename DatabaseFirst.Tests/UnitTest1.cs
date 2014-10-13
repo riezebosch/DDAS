@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 
 namespace DatabaseFirst.Tests
 {
@@ -96,6 +97,24 @@ namespace DatabaseFirst.Tests
                 {
                     Console.WriteLine("{0} {1}: {2}", instructor.FirstName, instructor.LastName, instructor.Location);
                 }
+            }
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(DbUpdateConcurrencyException))]
+        public void ConcurrenyCheckOpFirstNameEnLastName()
+        {
+            using (var context1 = new SchoolEntities())
+            using (var context2 = new SchoolEntities())
+            {
+                var p1 = context1.People.Find(1);
+                var p2 = context2.People.Find(1);
+
+                p1.FirstName = "Kim" + DateTime.Now;
+                p2.FirstName = "Kim" + DateTime.Now;
+
+                context1.SaveChanges();
+                context2.SaveChanges();
             }
         }
     }

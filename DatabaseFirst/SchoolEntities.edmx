@@ -253,8 +253,8 @@
             <PropertyRef Name="PersonID" />
           </Key>
           <Property Name="PersonID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" ConcurrencyMode="Fixed" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" ConcurrencyMode="Fixed" />
         </EntityType>
         <EntityType Name="StudentGrade">
           <Key>
@@ -315,7 +315,7 @@
         </EntityContainer>
         <EntityType Name="Student" BaseType="SchoolModel.Person">
           <Property Name="EnrollmentDate" Type="DateTime" Precision="3" Nullable="false" />
-          <NavigationProperty Name="Grades" Relationship="SchoolModel.StudentStudentGrade" FromRole="Student" ToRole="StudentGrade" />
+          <NavigationProperty Name="StudentGrades" Relationship="SchoolModel.StudentStudentGrade" FromRole="Student" ToRole="StudentGrade" />
         </EntityType>
         <EntityType Name="Instructor" BaseType="SchoolModel.Person">
           <Property Name="HireDate" Type="DateTime" Precision="3" Nullable="false" />

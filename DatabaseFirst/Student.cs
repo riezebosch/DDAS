@@ -16,11 +16,11 @@ namespace DatabaseFirst
     {
         public Student()
         {
-            this.Grades = new HashSet<StudentGrade>();
+            this.StudentGrades = new HashSet<StudentGrade>();
         }
     
         public System.DateTime EnrollmentDate { get; set; }
     
-        public virtual ICollection<StudentGrade> Grades { get; set; }
+        public virtual ICollection<StudentGrade> StudentGrades { get; set; }
     }
 }
