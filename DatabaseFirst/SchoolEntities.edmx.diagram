@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="28fc1e0efb904e308390564ccfc7d60f" Name="Diagram1">
+      <Diagram DiagramId="28fc1e0efb904e308390564ccfc7d60f" Name="Diagram1" ZoomLevel="90">
         <EntityTypeShape EntityType="SchoolModel.Course" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
         <EntityTypeShape EntityType="SchoolModel.Department" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
         <EntityTypeShape EntityType="SchoolModel.OfficeAssignment" Width="1.5" PointX="7.5" PointY="8.25" IsExpanded="true" />
@@ -15,14 +15,14 @@
         <AssociationConnector Association="SchoolModel.FK_Course_Department" ManuallyRouted="false" />
         <AssociationConnector Association="SchoolModel.FK_StudentGrade_Course" ManuallyRouted="false" />
         <AssociationConnector Association="SchoolModel.FK_OfficeAssignment_Person" ManuallyRouted="false" />
-        <AssociationConnector Association="SchoolModel.FK_StudentGrade_Student" ManuallyRouted="false" />
-        <AssociationConnector Association="SchoolModel.CourseInstructor" ManuallyRouted="false" />
         <EntityTypeShape EntityType="SchoolModel.Student" Width="1.5" PointX="4.5" PointY="10.75" />
         <InheritanceConnector EntityType="SchoolModel.Student" />
         <EntityTypeShape EntityType="SchoolModel.Instructor" Width="1.5" PointX="7.5" PointY="11.25" />
         <InheritanceConnector EntityType="SchoolModel.Instructor" />
         <InheritanceConnector EntityType="SchoolModel.OnlineCourse" />
         <InheritanceConnector EntityType="SchoolModel.OnsiteCourse" />
+        <AssociationConnector Association="SchoolModel.InstructorCourse" />
+        <AssociationConnector Association="SchoolModel.StudentStudentGrade" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

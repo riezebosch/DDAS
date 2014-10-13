@@ -14,18 +14,10 @@ namespace DatabaseFirst
     
     public abstract partial class Person
     {
-        public Person()
-        {
-            this.StudentGrades = new HashSet<StudentGrade>();
-            this.Courses = new HashSet<Course>();
-        }
-    
         public int PersonID { get; set; }
         public string LastName { get; set; }
         public string FirstName { get; set; }
     
         public virtual OfficeAssignment OfficeAssignment { get; set; }
-        public virtual ICollection<StudentGrade> StudentGrades { get; set; }
-        public virtual ICollection<Course> Courses { get; set; }
     }
 }

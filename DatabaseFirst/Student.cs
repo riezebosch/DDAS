@@ -14,6 +14,13 @@ namespace DatabaseFirst
     
     public partial class Student : Person
     {
+        public Student()
+        {
+            this.Grades = new HashSet<StudentGrade>();
+        }
+    
         public System.DateTime EnrollmentDate { get; set; }
+    
+        public virtual ICollection<StudentGrade> Grades { get; set; }
     }
 }

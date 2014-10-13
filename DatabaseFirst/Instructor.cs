@@ -14,6 +14,13 @@ namespace DatabaseFirst
     
     public partial class Instructor : Person
     {
+        public Instructor()
+        {
+            this.Courses = new HashSet<Course>();
+        }
+    
         public System.DateTime HireDate { get; set; }
+    
+        public virtual ICollection<Course> Courses { get; set; }
     }
 }

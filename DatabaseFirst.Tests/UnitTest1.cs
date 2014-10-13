@@ -35,7 +35,14 @@ namespace DatabaseFirst.Tests
                     Console.WriteLine(course.Title);
                     foreach (var grade in course.StudentGrades)
                     {
-                        Console.WriteLine("  {0} {1}: {2}", grade.Person.FirstName, grade.Person.LastName, grade.Grade);
+                        if (grade.Student != null)
+                        {
+                            Console.WriteLine("  {0} {1}: {2}", grade.Student.FirstName, grade.Student.LastName, grade.Grade);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Grade without a student: {0}, StudentId: {1}", grade.Grade, grade.StudentID);
+                        }
                     }
                 }
             }
