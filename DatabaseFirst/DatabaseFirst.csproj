@@ -39,6 +39,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,11 +49,67 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Course.cs">
+      <DependentUpon>SchoolEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Department.cs">
+      <DependentUpon>SchoolEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OfficeAssignment.cs">
+      <DependentUpon>SchoolEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OnlineCourse.cs">
+      <DependentUpon>SchoolEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OnsiteCourse.cs">
+      <DependentUpon>SchoolEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Person.cs">
+      <DependentUpon>SchoolEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SchoolEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SchoolEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SchoolEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SchoolEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SchoolEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SchoolEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentGrade.cs">
+      <DependentUpon>SchoolEntities.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <EntityDeploy Include="SchoolEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SchoolEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="SchoolEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SchoolEntities.edmx</DependentUpon>
+      <LastGenOutput>SchoolEntities.Context.cs</LastGenOutput>
+    </None>
+    <None Include="SchoolEntities.edmx.diagram">
+      <DependentUpon>SchoolEntities.edmx</DependentUpon>
+    </None>
+    <None Include="SchoolEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SchoolEntities.edmx</DependentUpon>
+      <LastGenOutput>SchoolEntities.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
