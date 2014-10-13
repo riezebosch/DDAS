@@ -55,6 +55,9 @@
     <Compile Include="Department.cs">
       <DependentUpon>SchoolEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Instructor.cs">
+      <DependentUpon>SchoolEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="OfficeAssignment.cs">
       <DependentUpon>SchoolEntities.tt</DependentUpon>
     </Compile>
@@ -82,6 +85,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SchoolEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Student.cs">
+      <DependentUpon>SchoolEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="StudentGrade.cs">
       <DependentUpon>SchoolEntities.tt</DependentUpon>

@@ -53,5 +53,31 @@ namespace DatabaseFirst.Tests
                 
             }
         }
+
+        [TestMethod]
+        public void StudentsAndInstructorsDerivedFromPerson()
+        {
+            using (var context = new SchoolEntities())
+            {
+                context.Configuration.ProxyCreationEnabled = false;
+                
+                foreach (var p in context.
+                    People)
+                {
+                    Console.WriteLine("{0} {1} - {2}", p.FirstName, p.LastName, p.GetType());
+                }
+            }
+        }
+
+        [TestMethod]
+        public void OnSiteCourseAndOnlineCourseDerivedFromCourse()
+        {
+            using (var context = new SchoolEntities())
+            {
+                foreach (var course in context.Courses.OfType<OnlineCourse>())
+                {
+                }
+            }
+        }
     }
 }

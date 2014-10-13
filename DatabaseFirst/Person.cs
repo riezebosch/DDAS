@@ -12,7 +12,7 @@ namespace DatabaseFirst
     using System;
     using System.Collections.Generic;
     
-    public partial class Person
+    public abstract partial class Person
     {
         public Person()
         {
@@ -23,8 +23,6 @@ namespace DatabaseFirst
         public int PersonID { get; set; }
         public string LastName { get; set; }
         public string FirstName { get; set; }
-        public Nullable<System.DateTime> HireDate { get; set; }
-        public Nullable<System.DateTime> EnrollmentDate { get; set; }
     
         public virtual OfficeAssignment OfficeAssignment { get; set; }
         public virtual ICollection<StudentGrade> StudentGrades { get; set; }
