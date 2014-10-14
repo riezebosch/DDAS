@@ -24,8 +24,7 @@ namespace CodeFirst.ReverseEngineered.Models.Mapping
             this.Property(t => t.PersonID).HasColumnName("PersonID");
             this.Property(t => t.LastName).HasColumnName("LastName");
             this.Property(t => t.FirstName).HasColumnName("FirstName");
-            this.Property(t => t.HireDate).HasColumnName("HireDate");
-            this.Property(t => t.EnrollmentDate).HasColumnName("EnrollmentDate");
+            //this.Property(t => t.EnrollmentDate).HasColumnName("EnrollmentDate");
         }
     }
 }

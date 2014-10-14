@@ -23,18 +23,20 @@ namespace CodeFirst.ReverseEngineered.Models
         public DbSet<OnsiteCourse> OnsiteCourses { get; set; }
         public DbSet<Person> People { get; set; }
         public DbSet<StudentGrade> StudentGrades { get; set; }
-        public DbSet<sysdiagram> sysdiagrams { get; set; }
 
-protected override void OnModelCreating(DbModelBuilder modelBuilder)
-{
-    modelBuilder.Configurations.Add(new CourseMap());
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Configurations.Add(new CourseMap());
             modelBuilder.Configurations.Add(new DepartmentMap());
             modelBuilder.Configurations.Add(new OfficeAssignmentMap());
             modelBuilder.Configurations.Add(new OnlineCourseMap());
             modelBuilder.Configurations.Add(new OnsiteCourseMap());
             modelBuilder.Configurations.Add(new PersonMap());
             modelBuilder.Configurations.Add(new StudentGradeMap());
-            modelBuilder.Configurations.Add(new sysdiagramMap());
+            modelBuilder.Configurations.Add(new InstructorMap());
+
+            modelBuilder.Entity<Student>().Property(s => s.EnrollmentDate).IsRequired();
+            modelBuilder.Entity<Student>().Map(m => m.Requires(s => s.EnrollmentDate).HasValue());
         }
     }
 }
