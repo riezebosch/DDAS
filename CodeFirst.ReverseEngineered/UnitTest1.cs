@@ -8,6 +8,7 @@ using System.Data.Entity;
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
 using System.Threading;
+using System.Data.Entity.Validation;
 
 namespace CodeFirst.ReverseEngineered
 {
@@ -149,6 +150,32 @@ namespace CodeFirst.ReverseEngineered
 
             mockContext.Object.GetValidationErrors();
 
+        }
+
+        [TestMethod]
+        public void TestInsertStudentWithStoredProcedure()
+        {
+            using (new TransactionScope())
+            using (var context = new SchoolContext())
+            {
+                context.Database.Log = Console.WriteLine;
+                context.People.Add(new Student
+                {
+                    FirstName = "Pietje",
+                    LastName = "Puk",
+                    EnrollmentDate = DateTime.Today
+                });
+                
+                try
+                {
+                    context.SaveChanges();
+                }
+                catch (DbEntityValidationException ex)
+                {
+                    Console.WriteLine(string.Join(Environment.NewLine, ex.EntityValidationErrors.SelectMany(s => s.ValidationErrors).Select(s => string.Format("{0}: {1}", s.PropertyName, s.ErrorMessage))));
+                    throw;
+                }
+            }
         }
     }
 }

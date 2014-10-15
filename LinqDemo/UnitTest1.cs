@@ -2,6 +2,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace LinqDemo
 {
@@ -112,6 +114,22 @@ namespace LinqDemo
 
             // Met je eigen methodes
             Expression<Func<string, bool>> expr2 = s => IsEven(int.Parse(s));
+        }
+
+        [TestMethod]
+        public async Task TestIestAsync()
+        {
+            int result = await MijnAsyncMethode(2);
+
+            Assert.AreEqual(4, result);
+            Assert.AreEqual(8, await MijnAsyncMethode(result));
+        }
+
+        private async Task<int> MijnAsyncMethode(int a)
+        {
+            await Task.Delay(2000);
+
+            return a * 2;
         }
     }
 }
