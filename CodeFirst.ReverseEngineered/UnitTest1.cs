@@ -76,6 +76,9 @@ namespace CodeFirst.ReverseEngineered
         [TestMethod]
         public void TestMockingOpDbSet()
         {
+            // Voorkomt het aanmaken van een vage database.
+            Database.SetInitializer<SchoolContext>(null);
+
             var data = new List<Person>
             {
                 new Instructor 
@@ -98,12 +101,13 @@ namespace CodeFirst.ReverseEngineered
             mockSet.As<IQueryable<Person>>()
                 .Setup(m => m.GetEnumerator()).Returns(data.GetEnumerator());
 
-            var mockContext = new Mock<SchoolContext>();
+            var mockContext = new Mock<SchoolContext> { CallBase = true };
             mockContext
                 .Setup(c => c.People)
                 .Returns(mockSet.Object);
-
             
+            // Nodig om geen database aan te hoeven maken (omdat de initializer al op null staat).
+            mockContext.Object.Database.Initialize(false);
 
             Console.WriteLine(mockContext.Object.GetType());
             Console.WriteLine(mockContext.Object.GetType().BaseType);
@@ -138,6 +142,12 @@ namespace CodeFirst.ReverseEngineered
             catch (DbUpdateConcurrencyException)
             {
             }
+
+            mockSet.Setup(m => m.Find(It.IsAny<int>())).Returns((object[] o) => data.FirstOrDefault());
+            var kim = mockContext.Object.People.Find(1);
+            Assert.IsNotNull(kim);
+
+            mockContext.Object.GetValidationErrors();
 
         }
     }
