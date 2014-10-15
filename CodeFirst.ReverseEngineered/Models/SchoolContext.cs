@@ -21,7 +21,7 @@ namespace CodeFirst.ReverseEngineered.Models
         public IDbSet<OfficeAssignment> OfficeAssignments { get; set; }
         public IDbSet<OnlineCourse> OnlineCourses { get; set; }
         public IDbSet<OnsiteCourse> OnsiteCourses { get; set; }
-        public IDbSet<Person> People { get; set; }
+        public virtual IDbSet<Person> People { get; set; }
         public IDbSet<StudentGrade> StudentGrades { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

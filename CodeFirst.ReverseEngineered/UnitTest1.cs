@@ -3,6 +3,11 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CodeFirst.ReverseEngineered.Models;
 using System.Linq;
 using System.Transactions;
+using Moq;
+using System.Data.Entity;
+using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
+using System.Threading;
 
 namespace CodeFirst.ReverseEngineered
 {
@@ -59,6 +64,81 @@ namespace CodeFirst.ReverseEngineered
 
                 Console.WriteLine(query);
             }
+        }
+
+        /// <summary>
+        /// LET OP! Dit is niet zo'n heel nuttige test.
+        /// Het laat vooral zien hoe je de context kunt 
+        /// mocken als je bijvoorbeeld bij MVC een Action
+        /// op een Controller wilt testen zonder dat daarbij
+        /// de database wordt benaderd.
+        /// </summary>
+        [TestMethod]
+        public void TestMockingOpDbSet()
+        {
+            var data = new List<Person>
+            {
+                new Instructor 
+                {
+                    PersonID = 12,
+                    FirstName = "Pietje",
+                    LastName = "Puk",
+                    HireDate = DateTime.Today
+                }
+            }.AsQueryable();
+
+            // Hiermee laat je de Linq-to-Objects provider gebruiken die op de Queryable implementatie zit van IList.
+            var mockSet = new Mock<DbSet<Person>>();
+            mockSet.As<IQueryable<Person>>()
+                .Setup(m => m.Provider).Returns(data.Provider);
+            mockSet.As<IQueryable<Person>>()
+                .Setup(m => m.Expression).Returns(data.Expression);
+            mockSet.As<IQueryable<Person>>()
+                .Setup(m => m.ElementType).Returns(data.ElementType);
+            mockSet.As<IQueryable<Person>>()
+                .Setup(m => m.GetEnumerator()).Returns(data.GetEnumerator());
+
+            var mockContext = new Mock<SchoolContext>();
+            mockContext
+                .Setup(c => c.People)
+                .Returns(mockSet.Object);
+
+            
+
+            Console.WriteLine(mockContext.Object.GetType());
+            Console.WriteLine(mockContext.Object.GetType().BaseType);
+
+            // Hier wordt een override op de base context gebruikt en moet de IDbSet dus virtual zijn
+            foreach (var p in mockContext.Object.People)
+            {
+                Console.WriteLine("{0} {1}", p.FirstName, p.LastName);
+            }
+
+            // Maar als je toch al een setter hebt heb je helemaal geen mock context nodig.
+            var context = new SchoolContext
+            {
+                People = mockSet.Object
+            };
+            foreach (var p in context.People)
+            {
+                Console.WriteLine("{0} {1}", p.FirstName, p.LastName);
+            }
+
+            // Test een delay
+            mockContext.Setup(m => m.SaveChanges()).Callback(() => Thread.Sleep(50));
+            mockContext.Object.SaveChanges();
+
+            // Test een exception
+            mockContext.Setup(m => m.SaveChanges()).Throws<DbUpdateConcurrencyException>();
+            try
+            {
+                mockContext.Object.SaveChanges();
+                Assert.Fail("Deze regel wordt alleen bereikt als er hierboven geen exception is opgetreden.");
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+            }
+
         }
     }
 }

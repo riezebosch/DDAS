@@ -16,7 +16,17 @@ namespace CodeFirst.Mvc.Controllers
 {
     public class InstructorsController : Controller
     {
-        private SchoolContext db = new SchoolContext();
+        private SchoolContext db;
+
+        internal InstructorsController(SchoolContext context)
+        {
+            db = context;
+        }
+
+        public InstructorsController() : 
+            this(new SchoolContext())
+        {
+        }
 
         // GET: Instructors
         public ActionResult Index()
