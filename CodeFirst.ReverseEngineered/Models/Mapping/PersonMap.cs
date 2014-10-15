@@ -19,6 +19,10 @@ namespace CodeFirst.ReverseEngineered.Models.Mapping
                 .IsRequired()
                 .HasMaxLength(50);
 
+            this.Property(t => t.Timestamp)
+                .IsRequired()
+                .IsRowVersion();
+
             // Table & Column Mappings
             this.ToTable("Person");
             this.Property(t => t.PersonID).HasColumnName("PersonID");

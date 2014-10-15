@@ -16,13 +16,13 @@ namespace CodeFirst.ReverseEngineered.Models
 
         }
 
-        public DbSet<Course> Courses { get; set; }
-        public DbSet<Department> Departments { get; set; }
-        public DbSet<OfficeAssignment> OfficeAssignments { get; set; }
-        public DbSet<OnlineCourse> OnlineCourses { get; set; }
-        public DbSet<OnsiteCourse> OnsiteCourses { get; set; }
-        public DbSet<Person> People { get; set; }
-        public DbSet<StudentGrade> StudentGrades { get; set; }
+        public IDbSet<Course> Courses { get; set; }
+        public IDbSet<Department> Departments { get; set; }
+        public IDbSet<OfficeAssignment> OfficeAssignments { get; set; }
+        public IDbSet<OnlineCourse> OnlineCourses { get; set; }
+        public IDbSet<OnsiteCourse> OnsiteCourses { get; set; }
+        public IDbSet<Person> People { get; set; }
+        public IDbSet<StudentGrade> StudentGrades { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
