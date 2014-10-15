@@ -11,9 +11,9 @@ namespace CodeFirst.ReverseEngineered.Models
             Database.SetInitializer<SchoolContext>(null);
         }
 
-        public SchoolContext()
-            : base("Name=SchoolContext")
+        public SchoolContext() : base("Name=SchoolContext")
         {
+
         }
 
         public DbSet<Course> Courses { get; set; }
@@ -36,7 +36,7 @@ namespace CodeFirst.ReverseEngineered.Models
             modelBuilder.Configurations.Add(new InstructorMap());
 
             modelBuilder.Entity<Student>().Property(s => s.EnrollmentDate).IsRequired();
-            modelBuilder.Entity<Student>().Map(m => m.Requires(s => s.EnrollmentDate).HasValue());
+            modelBuilder.Entity<Student>().ToTable("Student");
         }
     }
 }
