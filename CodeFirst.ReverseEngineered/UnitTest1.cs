@@ -229,18 +229,25 @@ namespace CodeFirst.ReverseEngineered
         {
             using (var context = new SchoolContext())
             {
+                context.Configuration.AutoDetectChangesEnabled = true;
+
                 var student = context.People.Create<Student>();
                 context.People.Add(student);
                 
                 var sg = context.StudentGrades.Create();
+
                 context.StudentGrades.Add(sg);
+                sg.Student = student;
+                sg.StudentID = student.PersonID;
 
-                sg.Person = student;
+                //context.ChangeTracker.DetectChanges();
+                Console.WriteLine(student.StudentGrades.GetType());
+                
+                // Relationship Fix-up not triggered by Automatic Detect Changes
+                Assert.IsFalse(student.StudentGrades.Contains(sg));
+
                 context.ChangeTracker.DetectChanges();
-
                 Assert.IsTrue(student.StudentGrades.Contains(sg));
-
-                Console.WriteLine(student.GetType());
             }
         }
     }

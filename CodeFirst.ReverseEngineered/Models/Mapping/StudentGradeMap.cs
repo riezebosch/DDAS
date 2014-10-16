@@ -22,7 +22,7 @@ namespace CodeFirst.ReverseEngineered.Models.Mapping
             this.HasRequired(t => t.Course)
                 .WithMany(t => t.StudentGrades)
                 .HasForeignKey(d => d.CourseID);
-            this.HasRequired(t => t.Person)
+            this.HasRequired(t => t.Student)
                 .WithMany(t => t.StudentGrades)
                 .HasForeignKey(d => d.StudentID);
 

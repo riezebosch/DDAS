@@ -80,6 +80,10 @@
     <Compile Include="Migrations\201410151339211_SpOpCudVanPerson.Designer.cs">
       <DependentUpon>201410151339211_SpOpCudVanPerson.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201410160833518_StudentGradeNaarStudent.cs" />
+    <Compile Include="Migrations\201410160833518_StudentGradeNaarStudent.Designer.cs">
+      <DependentUpon>201410160833518_StudentGradeNaarStudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Department.cs" />
@@ -119,6 +123,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201410151339211_SpOpCudVanPerson.resx">
       <DependentUpon>201410151339211_SpOpCudVanPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201410160833518_StudentGradeNaarStudent.resx">
+      <DependentUpon>201410160833518_StudentGradeNaarStudent.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Choose>

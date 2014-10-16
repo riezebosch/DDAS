@@ -8,7 +8,7 @@ namespace CodeFirst.ReverseEngineered.Models
     {
         static SchoolContext()
         {
-            Database.SetInitializer<SchoolContext>(null);
+            //Database.SetInitializer<SchoolContext>(null);
         }
 
         public SchoolContext() : base("Name=SchoolContext")

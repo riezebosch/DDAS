@@ -7,7 +7,6 @@ namespace CodeFirst.ReverseEngineered.Models
     {
         public Person()
         {
-            this.StudentGrades = new List<StudentGrade>();
             this.Courses = new List<Course>();
         }
 
@@ -15,7 +14,6 @@ namespace CodeFirst.ReverseEngineered.Models
         public string LastName { get; set; }
         public string FirstName { get; set; }
         public virtual OfficeAssignment OfficeAssignment { get; set; }
-        public virtual ICollection<StudentGrade> StudentGrades { get; set; }
         public virtual ICollection<Course> Courses { get; set; }
 
         public byte[] Timestamp { get; set; }
