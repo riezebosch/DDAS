@@ -7,13 +7,13 @@ namespace CodeFirst.ReverseEngineered.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.1-30610")]
-    public sealed partial class StudentGradeNaarStudent : IMigrationMetadata
+    public sealed partial class OfficeAssignmentEnCourseNaarInstructor : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(StudentGradeNaarStudent));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(OfficeAssignmentEnCourseNaarInstructor));
         
         string IMigrationMetadata.Id
         {
-            get { return "201410160833518_StudentGradeNaarStudent"; }
+            get { return "201410161134211_OfficeAssignmentEnCourseNaarInstructor"; }
         }
         
         string IMigrationMetadata.Source

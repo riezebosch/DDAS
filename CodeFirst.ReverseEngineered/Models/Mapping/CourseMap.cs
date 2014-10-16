@@ -26,7 +26,7 @@ public class CourseMap : EntityTypeConfiguration<Course>
             this.Property(t => t.DepartmentID).HasColumnName("DepartmentID");
 
             // Relationships
-            this.HasMany(t => t.People)
+            this.HasMany(t => t.Instructors)
                 .WithMany(t => t.Courses)
                 .Map(m =>
                     {

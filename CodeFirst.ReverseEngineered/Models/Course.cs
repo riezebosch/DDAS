@@ -8,7 +8,7 @@ namespace CodeFirst.ReverseEngineered.Models
         public Course()
         {
             this.StudentGrades = new List<StudentGrade>();
-            this.People = new List<Person>();
+            //this.Instructors = new List<Instructor>();
         }
 
         public int CourseID { get; set; }
@@ -19,6 +19,6 @@ namespace CodeFirst.ReverseEngineered.Models
         public virtual OnlineCourse OnlineCourse { get; set; }
         public virtual OnsiteCourse OnsiteCourse { get; set; }
         public virtual ICollection<StudentGrade> StudentGrades { get; set; }
-        public virtual ICollection<Person> People { get; set; }
+        public virtual ICollection<Instructor> Instructors { get; set; }
     }
 }

@@ -80,11 +80,12 @@
     <Compile Include="Migrations\201410151339211_SpOpCudVanPerson.Designer.cs">
       <DependentUpon>201410151339211_SpOpCudVanPerson.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201410160833518_StudentGradeNaarStudent.cs" />
-    <Compile Include="Migrations\201410160833518_StudentGradeNaarStudent.Designer.cs">
-      <DependentUpon>201410160833518_StudentGradeNaarStudent.cs</DependentUpon>
+    <Compile Include="Migrations\201410161134211_OfficeAssignmentEnCourseNaarInstructor.cs" />
+    <Compile Include="Migrations\201410161134211_OfficeAssignmentEnCourseNaarInstructor.Designer.cs">
+      <DependentUpon>201410161134211_OfficeAssignmentEnCourseNaarInstructor.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\SqlCodeGenerator.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Instructor.cs" />
@@ -124,8 +125,8 @@
     <EmbeddedResource Include="Migrations\201410151339211_SpOpCudVanPerson.resx">
       <DependentUpon>201410151339211_SpOpCudVanPerson.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201410160833518_StudentGradeNaarStudent.resx">
-      <DependentUpon>201410160833518_StudentGradeNaarStudent.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201410161134211_OfficeAssignmentEnCourseNaarInstructor.resx">
+      <DependentUpon>201410161134211_OfficeAssignmentEnCourseNaarInstructor.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Choose>

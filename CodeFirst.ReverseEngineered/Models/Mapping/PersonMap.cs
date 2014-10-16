@@ -29,7 +29,7 @@ namespace CodeFirst.ReverseEngineered.Models.Mapping
             this.Property(t => t.LastName).HasColumnName("LastName");
             this.Property(t => t.FirstName).HasColumnName("FirstName");
 
-            this.MapToStoredProcedures();
+            //this.MapToStoredProcedures();
         }
     }
 }

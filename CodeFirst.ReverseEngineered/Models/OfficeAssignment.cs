@@ -8,6 +8,6 @@ namespace CodeFirst.ReverseEngineered.Models
         public int InstructorID { get; set; }
         public string Location { get; set; }
         public byte[] Timestamp { get; set; }
-        public virtual Person Person { get; set; }
+        public virtual Instructor Instructor { get; set; }
     }
 }

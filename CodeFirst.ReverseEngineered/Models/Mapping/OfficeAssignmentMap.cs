@@ -31,7 +31,7 @@ namespace CodeFirst.ReverseEngineered.Models.Mapping
             this.Property(t => t.Timestamp).HasColumnName("Timestamp");
 
             // Relationships
-            this.HasRequired(t => t.Person)
+            this.HasRequired(t => t.Instructor)
                 .WithOptional(t => t.OfficeAssignment);
 
         }

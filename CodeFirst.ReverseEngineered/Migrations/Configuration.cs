@@ -10,6 +10,7 @@ namespace CodeFirst.ReverseEngineered.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
+            this.CodeGenerator = new SqlCodeGenerator();
         }
 
         protected override void Seed(CodeFirst.ReverseEngineered.Models.SchoolContext context)
