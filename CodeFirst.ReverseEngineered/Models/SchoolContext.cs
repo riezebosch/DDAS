@@ -22,7 +22,7 @@ namespace CodeFirst.ReverseEngineered.Models
         public IDbSet<OnlineCourse> OnlineCourses { get; set; }
         public IDbSet<OnsiteCourse> OnsiteCourses { get; set; }
         public virtual IDbSet<Person> People { get; set; }
-        public IDbSet<StudentGrade> StudentGrades { get; set; }
+        public virtual IDbSet<StudentGrade> StudentGrades { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

@@ -177,5 +177,71 @@ namespace CodeFirst.ReverseEngineered
                 }
             }
         }
+
+        [TestMethod]
+        public void TestLazyLoading()
+        {
+            using (var context = new SchoolContext())
+            {
+                context.Configuration.LazyLoadingEnabled = true;
+                context.Database.Log = Console.WriteLine;
+
+                foreach (var student in context.People.OfType<Student>()
+                    .Include(p => p.StudentGrades.Select(sg => sg.Course)))
+                {
+                    Console.WriteLine("{0} {1}", student.FirstName, student.LastName);
+
+                    foreach (var grade in student.StudentGrades)
+                    {
+                        Console.WriteLine("  {0}: {1}", grade.Course.Title, grade.Grade);
+                    }
+                }
+            }
+        }
+
+        [TestMethod]
+        public void CountOnReferenceWithExplicitLoading()
+        {
+            using (var context = new SchoolContext())
+            {
+                context.Configuration.LazyLoadingEnabled = false;
+                context.Database.Log = Console.WriteLine;
+
+                var student = context.People.OfType<Student>().First();
+                
+                int result = context.Entry(student).Collection(s => s.StudentGrades).Query().Count();
+                Console.WriteLine(result);
+            }
+        }
+
+        [TestMethod]
+        public void ShowMeTheProxies()
+        {
+            using (var context = new SchoolContext())
+            {
+                Student student = context.People.OfType<Student>().First();
+                Console.WriteLine("{0}: {1}", student.GetType(), student.GetType().BaseType);
+            }
+        }
+
+        [TestMethod]
+        public void CreateProxy()
+        {
+            using (var context = new SchoolContext())
+            {
+                var student = context.People.Create<Student>();
+                context.People.Add(student);
+                
+                var sg = context.StudentGrades.Create();
+                context.StudentGrades.Add(sg);
+
+                sg.Person = student;
+                context.ChangeTracker.DetectChanges();
+
+                Assert.IsTrue(student.StudentGrades.Contains(sg));
+
+                Console.WriteLine(student.GetType());
+            }
+        }
     }
 }

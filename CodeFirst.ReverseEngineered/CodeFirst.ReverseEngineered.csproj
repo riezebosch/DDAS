@@ -97,6 +97,7 @@
     <Compile Include="Models\OnsiteCourse.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\SchoolContext.cs" />
+    <Compile Include="Models\SchoolContext.Views.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\StudentGrade.cs" />
     <Compile Include="UnitTest1.cs" />
